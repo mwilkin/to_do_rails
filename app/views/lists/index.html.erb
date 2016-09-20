@@ -1,3 +1,11 @@
+<% content_for(:title, "Edit | To Do") %>
+<% content_for(:navbar) do %>
+  <li><a href="/">Home</a></li>
+  <li><a href="/lists">To Do App</a></li>
+  <li><a href="/lists/new">New List</a></li>
+<% end %>
+<hr>
+
 <h1>Lists</h1>
 
 <ul>
@@ -9,3 +17,5 @@
 <hr>
 
 <%= link_to "New List", new_list_path %>
+<hr>
+<%= image_tag "rollercoaster.jpeg" %>
