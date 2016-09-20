@@ -1,6 +1,13 @@
-<% content_for(:title, "List | To Do") %>
+<% content_for(:title, "Edit | To Do") %>
+<% content_for(:navbar) do %>
+  <li><a href="/">Home</a></li>
+  <li><a href="/lists">To Do App</a></li>
+  <li><a href="/lists/new">New List</a></li>
+<% end %>
+<hr>
 
 <h1><%= @list.name %></h1>
+
 
 <% if @list.tasks.any?%>
   <h4>Here are the taks for this list:</h4>
@@ -9,9 +16,9 @@
     <% @list.tasks.each do |task| %>
       <li>
         <%= task.description%> |
-        <%= link_to "Edit", edit_list_task_path(@list, task) %>
+        <%= link_to "Edit", edit_list_task_path(@list, task), id: "edit_task_btn", :class => "btn btn-default" %>
         <%= link_to "Delete", list_task_path(@list, task),
-                                :data => {:confirm => "You sure?", :method => "delete"} %>
+                                :data => {:confirm => "You sure?", :method => "delete"}, :class => "btn btn-danger"%>
       </li>
     <% end %>
   </ul>
@@ -19,7 +26,7 @@
   <p>There are no tasks yet!</p>
 <% end %>
 
-<p><%= link_to "Add a task", new_list_task_path(@list) %></p>
+<p><%= link_to "Add a task", new_list_task_path(@list), id: "new_task_link", remote: true %></p>
 <p><%= link_to "Edit list", edit_list_path(@list) %></p>
 <p><%= link_to "Delete list", list_path(@list),
                         :data => {:confirm => "You sure?",
