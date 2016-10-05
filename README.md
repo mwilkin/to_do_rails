@@ -2,7 +2,7 @@
 
 ### Description
 
-* A To Do list with list and task resources.
+* A To Do list app with list and task resources.
 
 #### Expectations
 
